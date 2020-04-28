@@ -14,15 +14,25 @@ import ReactDom from 'react-dom'
 // );
 
 
-function cartoon(name='Pikachu',show='Pokemon') {
-	//return <h1>Cartoon name is {name} and its show is {show}</h1>         //react la oru return statement la oru html tag dhan irukanum apdi illana error varumadhukaga dhan div tag use pandrom
-	return <div>
-				<h1>Cartoon name is {name} and its show is {show}</h1>
-				<h2>Hello Everyone</h2>
-			</div>
-}
+// function cartoon(name='Pikachu',show='Pokemon') {
+// 	//return <h1>Cartoon name is {name} and its show is {show}</h1>         //react la oru return statement la oru html tag dhan irukanum apdi illana error varumadhukaga dhan div tag use pandrom
+// 	return <div>
+// 				<h1>Cartoon name is {name} and its show is {show}</h1>
+// 				<h2>Hello Everyone</h2>
+// 			</div>
+// }
 
-ReactDom.render(
-	cartoon('Jasmine','Alladin'),
-	document.getElementById('root')
-);
+// ReactDom.render(
+// 	cartoon('Jasmine','Alladin'),
+// 	document.getElementById('root')
+// );
+
+
+//CLOCK 
+
+setInterval(function(){
+	ReactDom.render(
+		<h2>Time Now :- {new Date().toLocaleTimeString()}</h2>,
+		document.getElementById('root')
+	);
+},1000);		// 1000 is for milliseconds
