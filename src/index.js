@@ -30,9 +30,46 @@ import ReactDom from 'react-dom'
 
 //CLOCK 
 
-setInterval(function(){
-	ReactDom.render(
-		<h2>Time Now :- {new Date().toLocaleTimeString()}</h2>,
-		document.getElementById('root')
-	);
-},1000);		// 1000 is for milliseconds
+// setInterval(function(){
+// 	ReactDom.render(
+// 		<h2>Time Now :- {new Date().toLocaleTimeString()}</h2>,
+// 		document.getElementById('root')
+// 	);
+// },1000);		// 1000 is for milliseconds
+
+
+//COMPONENTS AND PROPS
+
+//using function
+
+// function Cartoon(props){
+// 	return <h1>Hello, {props.name}</h1>
+// }
+
+//using class
+// class Cartoon extends React.Component{
+// 	render(){
+// 		return <h1>Hello, {this.props.name}</h1>
+// 	}
+// }
+
+
+function Cartoon(props){
+	return <h1>Hello, {props.name} on {props.show}</h1>
+}
+
+function Show(){
+	return <div>
+				<Cartoon name='Pikachu' show='Pokemon' />
+				<Cartoon name='Jasmine' show='Alladin' />
+			</div>
+}
+
+
+ReactDom.render(
+	// <Cartoon name='Pikachu' />,
+	<Show />,
+	document.getElementById('root')
+);
+
+
