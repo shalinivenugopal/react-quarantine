@@ -54,22 +54,37 @@ import ReactDom from 'react-dom'
 // }
 
 
-function Cartoon(props){
-	return <h1>Hello, {props.name} on {props.show}</h1>
+// STATE AND LIFECYCLES
+
+class Clock extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			date : new Date()
+		}
+	}
+
+componentDidMount(){
+	this.timer = setInterval( () => this.start(),1000 );
 }
 
-function Show(){
-	return <div>
-				<Cartoon name='Pikachu' show='Pokemon' />
-				<Cartoon name='Jasmine' show='Alladin' />
-			</div>
+componentWillUnmount(){
+	clearInterval(this.timer);
 }
 
+start(){
+	this.setState({
+		date: new Date()
+	});
+}
 
-ReactDom.render(
-	// <Cartoon name='Pikachu' />,
-	<Show />,
-	document.getElementById('root')
-);
+render(){
+	return <h1> Time is: {this.state.date.toLocaleTimeString()}</h1>
+}
+}
 
-
+//function time(){
+	ReactDom.render(
+		<Clock/>,
+		document.getElementById('root')
+	);
