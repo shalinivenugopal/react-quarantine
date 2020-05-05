@@ -120,7 +120,7 @@ ReactDom.render(
 //SWITCH BETWEEN 2 COMPONENTS
 
 
-function Message(props){
+/*function Message(props){
 	if(props.value) {
 		return <h1>This is first message</h1>
 	}
@@ -151,4 +151,25 @@ function Message(props){
  ReactDom.render(
  	<Btn />,
  	document.getElementById('root')
+ );
+ */
+
+
+  //CREATING LIST ITEMS
+
+function ToonList(props){
+	const list = props.cartoon
+	//const toons = list.map((list,index) => <li key={index}> {list} </li>)
+	return  <ul>{
+		list.map((list,index) => <li key={index}> {list} </li>)
+	}</ul>
+}
+
+
+const cartoons = ['Pikachu','Alladin','Tom']
+//console.log(cartoons)
+
+ReactDom.render(
+	<ToonList cartoon={cartoons } />,
+	document.getElementById('root')
  );
