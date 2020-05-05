@@ -56,7 +56,7 @@ import ReactDom from 'react-dom'
 
 // STATE AND LIFECYCLES
 
-class Clock extends React.Component{
+/*class Clock extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
@@ -88,3 +88,30 @@ render(){
 		<Clock/>,
 		document.getElementById('root')
 	);
+*/
+
+//INCREMENT APP
+
+class Inc extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {counter : 0}
+		//this.increment = this.increment.bind(this);
+	}
+
+	increment = (e) =>{
+		e.preventDefault();
+		this.setState({
+			counter : this.state.counter + 1
+		});
+	}
+
+	render(){
+		return <button href='http://google.com' onClick={this.increment}>Value is {this.state.counter}</button>
+	}
+}
+
+ReactDom.render(
+	<Inc />,
+	document.getElementById('root')
+)
